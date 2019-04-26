@@ -7,21 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C747F572273711000853EB5 /* CauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C747F562273711000853EB5 /* CauseViewController.swift */; };
 		8CA11BC22272CC7200F2AAAD /* Marilyn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CA11BC02272CC7200F2AAAD /* Marilyn.xcdatamodeld */; };
 		8CB1781D2268E4BA00EF193D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB1781C2268E4BA00EF193D /* AppDelegate.swift */; };
-		8CB1781F2268E4BA00EF193D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB1781E2268E4BA00EF193D /* FirstViewController.swift */; };
-		8CB178212268E4BA00EF193D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB178202268E4BA00EF193D /* SecondViewController.swift */; };
+		8CB1781F2268E4BA00EF193D /* StateOfMindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB1781E2268E4BA00EF193D /* StateOfMindViewController.swift */; };
+		8CB178212268E4BA00EF193D /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB178202268E4BA00EF193D /* DashboardViewController.swift */; };
 		8CB178242268E4BA00EF193D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB178222268E4BA00EF193D /* Main.storyboard */; };
 		8CB178262268E4BD00EF193D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB178252268E4BD00EF193D /* Assets.xcassets */; };
 		8CB178292268E4BD00EF193D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB178272268E4BD00EF193D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C747F562273711000853EB5 /* CauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CauseViewController.swift; sourceTree = "<group>"; };
 		8CA11BC12272CC7200F2AAAD /* Marilyn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Marilyn.xcdatamodel; sourceTree = "<group>"; };
 		8CB178192268E4BA00EF193D /* Marilyn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marilyn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB1781C2268E4BA00EF193D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8CB1781E2268E4BA00EF193D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		8CB178202268E4BA00EF193D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		8CB1781E2268E4BA00EF193D /* StateOfMindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateOfMindViewController.swift; sourceTree = "<group>"; };
+		8CB178202268E4BA00EF193D /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		8CB178232268E4BA00EF193D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8CB178252268E4BD00EF193D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8CB178282268E4BD00EF193D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,9 +61,10 @@
 			isa = PBXGroup;
 			children = (
 				8CB1781C2268E4BA00EF193D /* AppDelegate.swift */,
-				8CB1781E2268E4BA00EF193D /* FirstViewController.swift */,
-				8CB178202268E4BA00EF193D /* SecondViewController.swift */,
+				8CB1781E2268E4BA00EF193D /* StateOfMindViewController.swift */,
+				8CB178202268E4BA00EF193D /* DashboardViewController.swift */,
 				8CB178222268E4BA00EF193D /* Main.storyboard */,
+				8C747F562273711000853EB5 /* CauseViewController.swift */,
 				8CA11BC02272CC7200F2AAAD /* Marilyn.xcdatamodeld */,
 				8CB178252268E4BD00EF193D /* Assets.xcassets */,
 				8CB178272268E4BD00EF193D /* LaunchScreen.storyboard */,
@@ -142,9 +145,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CA11BC22272CC7200F2AAAD /* Marilyn.xcdatamodeld in Sources */,
-				8CB178212268E4BA00EF193D /* SecondViewController.swift in Sources */,
+				8CB178212268E4BA00EF193D /* DashboardViewController.swift in Sources */,
 				8CB1781D2268E4BA00EF193D /* AppDelegate.swift in Sources */,
-				8CB1781F2268E4BA00EF193D /* FirstViewController.swift in Sources */,
+				8CB1781F2268E4BA00EF193D /* StateOfMindViewController.swift in Sources */,
+				8C747F572273711000853EB5 /* CauseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

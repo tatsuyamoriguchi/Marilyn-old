@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  DashboardViewController.swift
 //  Marilyn
 //
 //  Created by Tatsuya Moriguchi on 4/18/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class DashbardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  StateOfMindController.swift
 //  Marilyn
 //
 //  Created by Tatsuya Moriguchi on 4/18/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class StateOfMindViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
