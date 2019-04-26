@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C49E5C02273A2B6008557FB /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C49E5BF2273A2B6008557FB /* LocationViewController.swift */; };
 		8C747F572273711000853EB5 /* CauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C747F562273711000853EB5 /* CauseViewController.swift */; };
 		8CA11BC22272CC7200F2AAAD /* Marilyn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CA11BC02272CC7200F2AAAD /* Marilyn.xcdatamodeld */; };
 		8CB1781D2268E4BA00EF193D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB1781C2268E4BA00EF193D /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C49E5BF2273A2B6008557FB /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		8C747F562273711000853EB5 /* CauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CauseViewController.swift; sourceTree = "<group>"; };
 		8CA11BC12272CC7200F2AAAD /* Marilyn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Marilyn.xcdatamodel; sourceTree = "<group>"; };
 		8CB178192268E4BA00EF193D /* Marilyn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marilyn.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +66,7 @@
 				8CB1781E2268E4BA00EF193D /* StateOfMindViewController.swift */,
 				8CB178202268E4BA00EF193D /* DashboardViewController.swift */,
 				8CB178222268E4BA00EF193D /* Main.storyboard */,
+				8C49E5BF2273A2B6008557FB /* LocationViewController.swift */,
 				8C747F562273711000853EB5 /* CauseViewController.swift */,
 				8CA11BC02272CC7200F2AAAD /* Marilyn.xcdatamodeld */,
 				8CB178252268E4BD00EF193D /* Assets.xcassets */,
@@ -147,6 +150,7 @@
 				8CA11BC22272CC7200F2AAAD /* Marilyn.xcdatamodeld in Sources */,
 				8CB178212268E4BA00EF193D /* DashboardViewController.swift in Sources */,
 				8CB1781D2268E4BA00EF193D /* AppDelegate.swift in Sources */,
+				8C49E5C02273A2B6008557FB /* LocationViewController.swift in Sources */,
 				8CB1781F2268E4BA00EF193D /* StateOfMindViewController.swift in Sources */,
 				8C747F572273711000853EB5 /* CauseViewController.swift in Sources */,
 			);
