@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Cause" representedClassName="Cause" syncable="YES" codeGenerationType="class">
+        <attribute name="causeDesc" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="stateOfMind" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StateOfMind" inverseName="cause" inverseEntity="StateOfMind" syncable="YES"/>
+    </entity>
+    <entity name="CauseType" representedClassName="CauseType" syncable="YES" codeGenerationType="class">
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="stateOfMind" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StateOfMind" inverseName="causeType" inverseEntity="StateOfMind" syncable="YES"/>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
+        <attribute name="location" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="stateOfMind" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StateOfMind" inverseName="location" inverseEntity="StateOfMind" syncable="YES"/>
+    </entity>
+    <entity name="StateOfMind" representedClassName="StateOfMind" syncable="YES" codeGenerationType="class">
+        <attribute name="stateOfMindRate" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="cause" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cause" inverseName="stateOfMind" inverseEntity="Cause" syncable="YES"/>
+        <relationship name="causeType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CauseType" inverseName="stateOfMind" inverseEntity="CauseType" syncable="YES"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="stateOfMind" inverseEntity="Location" syncable="YES"/>
+        <relationship name="stateOfMindDesc" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StateOfMindDescription" inverseName="stateOfMind" inverseEntity="StateOfMindDescription" syncable="YES"/>
+    </entity>
+    <entity name="StateOfMindDescription" representedClassName="StateOfMindDescription" syncable="YES" codeGenerationType="class">
+        <attribute name="stateDesc" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="stateOfMind" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StateOfMind" inverseName="stateOfMindDesc" inverseEntity="StateOfMind" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="StateOfMind" positionX="-32.25390625" positionY="-194.625" width="128" height="135"/>
+        <element name="CauseType" positionX="205.98828125" positionY="-93.88671875" width="128" height="75"/>
+        <element name="StateOfMindDescription" positionX="136.125" positionY="309.28515625" width="128" height="75"/>
+        <element name="Cause" positionX="211.73828125" positionY="-188.2109375" width="128" height="75"/>
+        <element name="Location" positionX="170.0546875" positionY="201.8671875" width="128" height="75"/>
+    </elements>
+</model>
