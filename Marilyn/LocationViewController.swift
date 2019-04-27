@@ -10,6 +10,24 @@ import UIKit
 
 class LocationViewController: UIViewController {
 
+    @IBOutlet weak var locationPicker: UIPickerView!
+    @IBAction func saveOnPressed(_ sender: Any) {
+        
+
+            
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        // animated: true returns warning "Swift Unbalanced calls to begin/end appearance transitions for"
+        self.navigationController?.popToRootViewController(animated: false)
+        
+        if let tabBarController = appDelegate.window!.rootViewController as? UITabBarController {
+                tabBarController.selectedIndex = 0
+            }
+     
+    }
+ 
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

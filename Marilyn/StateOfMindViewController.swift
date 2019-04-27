@@ -23,11 +23,9 @@ class StateOfMindViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
         
     }
 
-    
 
 }
 
