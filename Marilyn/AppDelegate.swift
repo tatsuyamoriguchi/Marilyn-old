@@ -70,6 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                     case "StateOfMindDesc":
                                         let dataObject = StateOfMindDesc(context: backgroundContext)
                                         dataObject.stateDesc = item
+                                        //dataObject.stateRate = item
                                         
                                     default:
                                         break
