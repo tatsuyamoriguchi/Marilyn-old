@@ -8,23 +8,8 @@
 
 import UIKit
 
-class StateOfMindViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        <#code#>
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        <#code#>
-    }
-    
+class StateOfMindViewController: UIViewController  {
 
-    @IBOutlet weak var stateOfMindRatePicker: UIPickerView!
-    @IBOutlet weak var stateOfMindInfo: UITextView!
-    override func viewDidLayoutSubviews() {
-        stateOfMindInfo.setContentOffset(.zero, animated: true)
-    }
-    
-    @IBOutlet weak var stateOfMindDescPicker: UIPickerView!
     
     @IBAction func saveStateOfMindOnPressed(_ sender: UIButton) {
     }

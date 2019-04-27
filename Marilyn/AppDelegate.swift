@@ -51,41 +51,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 
                 backgroundContext.perform {
-                        if let arrayContents = NSArray(contentsOf: urlPath) as? [String] {
+                    if let arrayContents = NSArray(contentsOf: urlPath) as? [String] {
+                        
+                        do {
                             
-                            do {
+                            for item in arrayContents {
+                                //print(item)
                                 
-                                for item in arrayContents {
-                                    //print(item)
+                                switch file {
+                                case "CauseType":
+                                    let dataObject = CauseType(context: backgroundContext)
+                                    dataObject.type = item
                                     
-                                    switch file {
-                                    case "CauseType":
-                                        let dataObject = CauseType(context: backgroundContext)
-                                        dataObject.type = item
-                                        
-                                    case "Location":
-                                        let dataObject = Location(context: backgroundContext)
-                                        dataObject.location = item
-                                        
-                                    case "StateOfMindDesc":
-                                        let dataObject = StateOfMindDesc(context: backgroundContext)
-                                        dataObject.stateDesc = item
-                                        //dataObject.stateRate = item
-                                        
-                                    default:
-                                        break
-                                    }
+                                case "Location":
+                                    let dataObject = Location(context: backgroundContext)
+                                    dataObject.location = item
                                     
+                                default:
+                                    break
                                 }
-
-                                try backgroundContext.save()
                                 
-                                userDefaults.setValue(true, forKey: preloadedDataKey)
- 
-                            } catch {
-                                print(error.localizedDescription)
                             }
+                            
+                            try backgroundContext.save()
+                            
+                            userDefaults.setValue(true, forKey: preloadedDataKey)
+                            
+                        } catch {
+                            print(error.localizedDescription)
                         }
+                    }
                 }
                 
             }

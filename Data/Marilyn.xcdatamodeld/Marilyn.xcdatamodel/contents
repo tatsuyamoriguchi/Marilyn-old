@@ -13,24 +13,16 @@
         <relationship name="stateOfMind" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StateOfMind" inverseName="location" inverseEntity="StateOfMind" syncable="YES"/>
     </entity>
     <entity name="StateOfMind" representedClassName="StateOfMind" syncable="YES" codeGenerationType="class">
+        <attribute name="stateOfMindRate" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="cause" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cause" inverseName="stateOfMind" inverseEntity="Cause" syncable="YES"/>
         <relationship name="causeType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CauseType" inverseName="stateOfMind" inverseEntity="CauseType" syncable="YES"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="stateOfMind" inverseEntity="Location" syncable="YES"/>
-        <relationship name="stateOfMindDesc" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StateOfMindDesc" inverseName="stateOfMind" inverseEntity="StateOfMindDesc" syncable="YES"/>
-        <relationship name="stateOfMindRate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StateOfMindDesc" inverseName="stateOfMindRate" inverseEntity="StateOfMindDesc" syncable="YES"/>
-    </entity>
-    <entity name="StateOfMindDesc" representedClassName="StateOfMindDesc" syncable="YES" codeGenerationType="class">
-        <attribute name="stateDesc" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="stateRate" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="stateOfMind" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StateOfMind" inverseName="stateOfMindDesc" inverseEntity="StateOfMind" syncable="YES"/>
-        <relationship name="stateOfMindRate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StateOfMind" inverseName="stateOfMindRate" inverseEntity="StateOfMind" syncable="YES"/>
     </entity>
     <elements>
         <element name="Cause" positionX="190.45703125" positionY="-276.125" width="128" height="75"/>
         <element name="CauseType" positionX="188.72265625" positionY="-173.26171875" width="128" height="75"/>
         <element name="Location" positionX="188.8046875" positionY="-78.93359375" width="128" height="30"/>
-        <element name="StateOfMind" positionX="-32.25390625" positionY="-194.625" width="128" height="30"/>
-        <element name="StateOfMindDesc" positionX="175.734375" positionY="19.34765625" width="128" height="30"/>
+        <element name="StateOfMind" positionX="-32.25390625" positionY="-194.625" width="128" height="120"/>
     </elements>
 </model>

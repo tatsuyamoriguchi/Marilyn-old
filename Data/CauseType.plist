@@ -4,9 +4,10 @@
 <array>
 	<string>Relationship</string>
 	<string>Productivity</string>
-	<string>Learning</string>
+	<string>Skil Learning</string>
 	<string>Business Sales</string>
 	<string>Management</string>
 	<string>Life</string>
+	<string>Behavior Attitude</string>
 </array>
 </plist>
