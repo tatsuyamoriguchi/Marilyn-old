@@ -54,10 +54,10 @@
 		8CA971B02274191300E409B4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				8C8B6DEF227409DC00546772 /* Location.plist */,
 				8CA11BC02272CC7200F2AAAD /* Marilyn.xcdatamodeld */,
-				8CE8171C227418D800F776C1 /* StateOfMindDesc.plist */,
 				8CA971B1227419D400E409B4 /* CauseType.plist */,
+				8C8B6DEF227409DC00546772 /* Location.plist */,
+				8CE8171C227418D800F776C1 /* StateOfMindDesc.plist */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -83,12 +83,12 @@
 			isa = PBXGroup;
 			children = (
 				8CB1781C2268E4BA00EF193D /* AppDelegate.swift */,
-				8CB1781E2268E4BA00EF193D /* StateOfMindViewController.swift */,
-				8CB178202268E4BA00EF193D /* DashboardViewController.swift */,
-				8CB178222268E4BA00EF193D /* Main.storyboard */,
-				8C49E5C32273C611008557FB /* RootUITabBarController.swift */,
-				8C49E5BF2273A2B6008557FB /* LocationViewController.swift */,
 				8C747F562273711000853EB5 /* CauseViewController.swift */,
+				8CB178202268E4BA00EF193D /* DashboardViewController.swift */,
+				8C49E5BF2273A2B6008557FB /* LocationViewController.swift */,
+				8C49E5C32273C611008557FB /* RootUITabBarController.swift */,
+				8CB1781E2268E4BA00EF193D /* StateOfMindViewController.swift */,
+				8CB178222268E4BA00EF193D /* Main.storyboard */,
 				8CB178252268E4BD00EF193D /* Assets.xcassets */,
 				8CB178272268E4BD00EF193D /* LaunchScreen.storyboard */,
 				8CB1782A2268E4BD00EF193D /* Info.plist */,

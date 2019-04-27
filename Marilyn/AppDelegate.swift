@@ -17,8 +17,82 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        preloadData()
         return true
     }
+    
+    private func preloadData()
+    {
+        
+        let preloadedDataKey = "didPreloadData"
+        let userDefaults = UserDefaults.standard
+        
+        if userDefaults.bool(forKey: preloadedDataKey) == false
+        {
+            // Preload
+            
+            let dataFile = ["CauseType", "Location", "StateOfMindDesc"]
+            
+            for file in dataFile
+            {
+                
+                guard let urlPath = Bundle.main.url(forResource: file, withExtension: "plist") else
+                {
+                    return
+                }
+                
+                // Import data in background thread
+                let backgroundContext = persistentContainer.newBackgroundContext()
+                
+                // non-parent-child separate cotext from backgroundContext
+                // context associated with main que, make persistentContainer to be aware of any change
+                persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
+                
+                
+                backgroundContext.perform {
+                        if let arrayContents = NSArray(contentsOf: urlPath) as? [String] {
+                            
+                            do {
+                                
+                                for item in arrayContents {
+                                    //print(item)
+                                    
+                                    switch file {
+                                    case "CauseType":
+                                        let dataObject = CauseType(context: backgroundContext)
+                                        dataObject.type = item
+                                        
+                                    case "Location":
+                                        let dataObject = Location(context: backgroundContext)
+                                        dataObject.location = item
+                                        
+                                    case "StateOfMindDesc":
+                                        let dataObject = StateOfMindDesc(context: backgroundContext)
+                                        dataObject.stateDesc = item
+                                        
+                                    default:
+                                        break
+                                    }
+                                    
+                                }
+
+                                try backgroundContext.save()
+                                
+                                userDefaults.setValue(true, forKey: preloadedDataKey)
+ 
+                            } catch {
+                                print(error.localizedDescription)
+                            }
+                        }
+                }
+                
+            }
+            
+        }
+        
+    }
+    
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -8,7 +8,15 @@
 
 import UIKit
 
-class StateOfMindViewController: UIViewController {
+class StateOfMindViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        <#code#>
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        <#code#>
+    }
+    
 
     @IBOutlet weak var stateOfMindRatePicker: UIPickerView!
     @IBOutlet weak var stateOfMindInfo: UITextView!
