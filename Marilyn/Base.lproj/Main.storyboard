@@ -109,7 +109,12 @@
                             <outlet property="delegate" destination="M4o-WS-MAT" id="DQP-t3-hY7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="State of Mind" prompt="Select an adjective that descrives your current state of mind." largeTitleDisplayMode="always" id="S4U-dl-C7o">
+                    <navigationItem key="navigationItem" title="State of Mind" prompt="Select an adjective that descrives how you feel now." largeTitleDisplayMode="always" id="S4U-dl-C7o">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="add" id="fb2-4J-2hN">
+                            <connections>
+                                <action selector="addNewOnPressed:" destination="M4o-WS-MAT" id="eVY-EK-Z9X"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="uAt-EV-h5L">
                             <connections>
                                 <segue destination="soB-9T-bIG" kind="show" identifier="ToCauseSegue" id="yb3-Jy-2VM"/>
@@ -179,7 +184,7 @@
                             <outlet property="delegate" destination="ezh-Uc-Du4" id="Jbs-sb-Yns"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Location" prompt="Pick a preset location or add a new one." largeTitleDisplayMode="always" id="q7b-Bs-bMX">
+                    <navigationItem key="navigationItem" title="Location" prompt="Pick a current location or add a new one." largeTitleDisplayMode="always" id="q7b-Bs-bMX">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="XYI-AT-riR">
                             <connections>
                                 <action selector="saveOnPressed:" destination="XKk-dr-tMT" id="tJq-6J-Pyk"/>

@@ -88,6 +88,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
             }
             
+        } else {
+            print("Data has already been imported.")
         }
         
     }

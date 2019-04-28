@@ -13,11 +13,14 @@ class StateOfMindTableViewController: UITableViewController {
 
     private var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureFetchedResultsController()
         
         tableView.dataSource = self
+        
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -47,6 +50,44 @@ class StateOfMindTableViewController: UITableViewController {
         
     }
     
+
+    @IBAction func addNewOnPressed(_ sender: UIBarButtonItem) {
+    
+        print("Hello")
+        let alertController = UIAlertController(title: "Add New", message: "Add an adjective which the best descibes your current state of mind if you can't find one in the existing list.", preferredStyle: .alert)
+        let saveAction = UIAlertAction(title: "Save", style: .default) {
+            [unowned self] action in
+            guard let textField = alertController.textFields?.first, let itemToAdd = textField.text else { print("What? error")
+                return }
+        self.save(itemToAdd)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addTextField(configurationHandler: nil)
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+
+    func save(_ itemName: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "StateOfMindDesc", in: managedContext)!
+        let item = NSManagedObject(entity: entity, insertInto: managedContext)
+        item.setValue(itemName, forKey: "adjective")
+        item.setValue(200, forKey: "rate")
+        
+        do {
+            try managedContext.save()
+           
+        } catch {
+            print("Failed to save an item: \(error.localizedDescription)")
+        }
+    }
+    
+    
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -64,6 +105,7 @@ class StateOfMindTableViewController: UITableViewController {
         }
         let rowCount = sections[section].numberOfObjects
         print("The amount of rows in the section are: \(rowCount)")
+
         
         return rowCount
     }
@@ -91,7 +133,7 @@ class StateOfMindTableViewController: UITableViewController {
                 rate.append(currentSection.name)
             }
   */
-            return currentSection.name
+            return "State of Mind Rate: " + currentSection.name
             
         }
         
