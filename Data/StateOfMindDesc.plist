@@ -6,7 +6,7 @@
 	<integer>100</integer>
 	<key>Amazed</key>
 	<integer>100</integer>
-	<key>Appreciative</key>
+	<key>Appreciated</key>
 	<integer>100</integer>
 	<key>Attractive</key>
 	<integer>100</integer>
@@ -78,6 +78,8 @@
 	<integer>100</integer>
 	<key>Proud</key>
 	<integer>100</integer>
+	<key>Recognized</key>
+	<integer>100</integer>
 	<key>Relax</key>
 	<integer>100</integer>
 	<key>Respectful</key>
@@ -97,6 +99,8 @@
 	<key>Sweet</key>
 	<integer>100</integer>
 	<key>Upbeat</key>
+	<integer>100</integer>
+	<key>Valued</key>
 	<integer>100</integer>
 	<key>Warm</key>
 	<integer>100</integer>
@@ -130,6 +134,8 @@
 	<integer>-100</integer>
 	<key>Disappointed</key>
 	<integer>-100</integer>
+	<key>Discriminated</key>
+	<integer>-100</integer>
 	<key>Downcast</key>
 	<integer>-100</integer>
 	<key>Dreadful</key>
@@ -160,6 +166,8 @@
 	<integer>-100</integer>
 	<key>Hurtful</key>
 	<integer>-100</integer>
+	<key>Ignored</key>
+	<integer>-25</integer>
 	<key>Irritated</key>
 	<integer>-100</integer>
 	<key>Mad</key>
@@ -186,6 +194,8 @@
 	<integer>-100</integer>
 	<key>Resentful</key>
 	<integer>-100</integer>
+	<key>Ridiculous</key>
+	<integer>-25</integer>
 	<key>Sad</key>
 	<integer>-100</integer>
 	<key>Sadistic</key>
@@ -193,7 +203,7 @@
 	<key>Sarcastic</key>
 	<integer>-25</integer>
 	<key>Selfish</key>
-	<integer>-100</integer>
+	<integer>-25</integer>
 	<key>Sentimental</key>
 	<integer>-25</integer>
 	<key>Shy</key>
@@ -203,11 +213,11 @@
 	<key>Sour</key>
 	<integer>-25</integer>
 	<key>Stupid</key>
-	<integer>-100</integer>
+	<integer>-25</integer>
 	<key>Sympathetic</key>
 	<integer>-25</integer>
 	<key>Tearful</key>
-	<integer>-100</integer>
+	<integer>-25</integer>
 	<key>Terrible</key>
 	<integer>-100</integer>
 	<key>Thirsty</key>
@@ -219,7 +229,7 @@
 	<key>Ugly</key>
 	<integer>-100</integer>
 	<key>Uneasy</key>
-	<integer>-100</integer>
+	<integer>-25</integer>
 	<key>Weak</key>
 	<integer>-25</integer>
 </dict>
