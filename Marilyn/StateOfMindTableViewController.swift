@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import CoreData
 
 class StateOfMindTableViewController: UITableViewController {
 
+    private var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureFetchedResultsController()
+        
+        tableView.dataSource = self
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -20,27 +26,78 @@ class StateOfMindTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    private func configureFetchedResultsController() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        // Create the fetch request, set some sort descriptor, then feed the fetchedResultsController
+        // the request with along with the managed object context, which we'll use the view context
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "StateOfMindDesc")
+        let sortDescriptorRate = NSSortDescriptor(key: "rate", ascending: false)
+        let sortDescriptorAdjective = NSSortDescriptor(key: "adjective", ascending: true)
+        
+        fetchRequest.sortDescriptors = [sortDescriptorRate, sortDescriptorAdjective]
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.persistentContainer.viewContext, sectionNameKeyPath: "rate", cacheName: nil)
+        fetchedResultsController?.delegate = self
+        do {
+            try fetchedResultsController?.performFetch()
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+
+        guard let sections = fetchedResultsController?.sections else {
+            return 0
+        }
+        //print("sections.count: \(sections.count)")
+        return sections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        guard let sections = fetchedResultsController?.sections else {
+            return 0
+        }
+        let rowCount = sections[section].numberOfObjects
+        print("The amount of rows in the section are: \(rowCount)")
+        
+        return rowCount
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let StateOfMindCell = tableView.dequeueReusableCell(withIdentifier: "StateOfMindCell", for: indexPath)
+        if let stateOfMindDesc = fetchedResultsController?.object(at: indexPath) as? StateOfMindDesc {
+            StateOfMindCell.textLabel?.text = stateOfMindDesc.adjective
+            StateOfMindCell.detailTextLabel?.text = stateOfMindDesc.rate as AnyObject as? String
+        }
 
-        // Configure the cell...
 
-        return cell
+        return StateOfMindCell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        if let sections = fetchedResultsController?.sections {
+            let currentSection = sections[section]
+            
+/*            // Populate an array for segue, toEditWordSegue
+            if rate.contains(currentSection.name) {
+            } else {
+                rate.append(currentSection.name)
+            }
+  */
+            return currentSection.name
+            
+        }
+        
+        return nil
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -87,4 +144,12 @@ class StateOfMindTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension StateOfMindTableViewController: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        print("The Controller Content Has Changed.")
+        tableView.reloadData()
+    }
+    
 }
