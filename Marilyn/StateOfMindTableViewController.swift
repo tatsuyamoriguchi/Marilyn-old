@@ -50,32 +50,70 @@ class StateOfMindTableViewController: UITableViewController {
         
     }
     
-
+ 
     @IBAction func addNewOnPressed(_ sender: UIBarButtonItem) {
     
-        print("Hello")
         let alertController = UIAlertController(title: "Add New", message: "Add an adjective which the best descibes your current state of mind if you can't find one in the existing list.", preferredStyle: .alert)
-        let saveAction = UIAlertAction(title: "Save", style: .default) {
-            [unowned self] action in
-            guard let textField = alertController.textFields?.first, let itemToAdd = textField.text else { print("What? error")
-                return }
-        self.save(itemToAdd)
-        }
+        
+        let saveAction = UIAlertAction(title: "Save", style: .default, handler: { (action) -> Void in
+            
+            let newAdjective = alertController.textFields![0]
+            let newRate = alertController.textFields![1]
+
+        
+        
+/*            let itemToAdd = alertController.textFields?[0].text
+            let rateToAdd = alertController.textFields?[1].text
+            print("itemToAdd = \(String(describing: itemToAdd))")
+*/
+            let itemToAdd = newAdjective.text
+            let rateToAdd = newRate.text
+
+            self.save(itemName: itemToAdd!, itemRate: rateToAdd!) // Later add no-nil validation
+        
+        })
+        
+        
+        
+            alertController.addTextField { (textField: UITextField) in
+            //    textField.text = ""
+                textField.placeholder = "Adjective"
+            }
+            
+            alertController.addTextField { (textField: UITextField) in
+              //  textField.text = ""
+                textField.placeholder = "Rate"
+            }
+        
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alertController.addTextField(configurationHandler: nil)
+        
+        //alertController.addTextField(configurationHandler: nil)
+        
         alertController.addAction(saveAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
+     
+  
+            
+/*            guard let textField = alertController.textFields?[0], let itemToAdd = textField.text else { print("What? error")
+                return }
+            guard let rateField = alertController.textFields?[1], let rateToAdd = rateField.text else { print("Error rateToAdd")
+                return
+            }
+  */
+
+        
     }
 
-    func save(_ itemName: String) {
+    func save(itemName: String, itemRate: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "StateOfMindDesc", in: managedContext)!
         let item = NSManagedObject(entity: entity, insertInto: managedContext)
         item.setValue(itemName, forKey: "adjective")
-        item.setValue(200, forKey: "rate")
+        let newRate = Int16(itemRate)
+        item.setValue(newRate, forKey: "rate")
         
         do {
             try managedContext.save()
