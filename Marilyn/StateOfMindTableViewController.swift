@@ -61,34 +61,55 @@ class StateOfMindTableViewController: UITableViewController {
             let newRate = alertController.textFields![1]
 
         
-        
 /*            let itemToAdd = alertController.textFields?[0].text
             let rateToAdd = alertController.textFields?[1].text
             print("itemToAdd = \(String(describing: itemToAdd))")
 */
             let itemToAdd = newAdjective.text
-            let rateToAdd = newRate.text
+            let rateToAdd = Int16(newRate.text!)
 
             self.save(itemName: itemToAdd!, itemRate: rateToAdd!) // Later add no-nil validation
         
         })
         
-        
-        
-            alertController.addTextField { (textField: UITextField) in
+        alertController.addTextField { (textField: UITextField) in
             //    textField.text = ""
-                textField.placeholder = "Adjective"
+            textField.placeholder = "Adjective"
+            saveAction.isEnabled = false
+            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: OperationQueue.main) { (notification) in
+                saveAction.isEnabled = (textField.text?.count)! > 0
             }
-            
-            alertController.addTextField { (textField: UITextField) in
-              //  textField.text = ""
-                textField.placeholder = "Rate"
-            }
+        }
         
+        alertController.addTextField { (textField: UITextField) in
+            //  textField.text = ""
+            textField.placeholder = "Rate"
+            saveAction.isEnabled = false
+            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: OperationQueue.main) { (notification) in
+                //saveAction.isEnabled = (textField.text?.count)! > 0
+                let  value = textField.text?.count
+                switch  value {
+                case _ where value! > 0:
+                    saveAction.isEnabled = true
+                case _ where value! < 100:
+                    saveAction.isEnabled = false
+                default:
+                    saveAction.isEnabled = false
+                }
+            }
+        }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        //alertController.addTextField(configurationHandler: nil)
+        
+/*        alertController.addTextField(configurationHandler: { (textField) in
+                        //textField.text = ""
+            saveAction.isEnabled = false
+            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: OperationQueue.main) { (notification) in
+                saveAction.isEnabled = (textField.text?.count)! > 0
+            }
+        })
+ */
         
         alertController.addAction(saveAction)
         alertController.addAction(cancelAction)
@@ -106,14 +127,18 @@ class StateOfMindTableViewController: UITableViewController {
         
     }
 
-    func save(itemName: String, itemRate: String) {
+    func save(itemName: String, itemRate: Int16) {
+        
+        // Validate values in itemName and itemRate
+        
+        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "StateOfMindDesc", in: managedContext)!
         let item = NSManagedObject(entity: entity, insertInto: managedContext)
         item.setValue(itemName, forKey: "adjective")
-        let newRate = Int16(itemRate)
-        item.setValue(newRate, forKey: "rate")
+        //let newRate = Int16(itemRate)
+        item.setValue(itemRate, forKey: "rate")
         
         do {
             try managedContext.save()
